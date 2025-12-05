@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr2j83s30usba"]
+
+[ext_resource type="Theme" uid="uid://sy28c4awwmk1" path="res://theme.tres" id="1_thu50"]
+[ext_resource type="Script" uid="uid://btsv8ivbn7ns8" path="res://startgame_button.gd" id="2_m7x51"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_left = 0.0816
+anchor_top = 0.5150703
+anchor_right = 0.9164
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1031.5
+offset_top = -357.5
+offset_right = 1031.5
+offset_bottom = 357.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="startgame_button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 200)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_thu50")
+theme_override_font_sizes/font_size = 83
+text = "Start Game"
+script = ExtResource("2_m7x51")

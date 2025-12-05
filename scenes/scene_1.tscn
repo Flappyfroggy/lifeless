@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=4 uid="uid://cvclqgxdpc7ui"]
+
+[ext_resource type="Texture2D" uid="uid://n43xrynmu8as" path="res://assets/campfire.png" id="1_ta4h7"]
+[ext_resource type="Texture2D" uid="uid://crqheneqfsqlj" path="res://assets/bricks.png" id="2_ka884"]
+[ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="3_cn2eb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ka884"]
+texture = ExtResource("2_ka884")
+texture_region_size = Vector2i(8, 10)
+14:81/size_in_atlas = Vector2i(17, 8)
+14:81/0 = 0
+14:81/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.649994, -38.5, 64.90001, -37.949997, 63.800003, 34.100006, -66, 33)
+7:11/size_in_atlas = Vector2i(34, 8)
+7:11/0 = 0
+7:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-142.2564, -31.17949, 132.51279, -32.15384, 137.38458, 42.87178, -136.41023, 40.923065)
+
+[sub_resource type="TileSet" id="TileSet_sj5te"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_ka884")
+
+[node name="scene_1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1250, 747)
+texture = ExtResource("1_ta4h7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIAFoAAQAHAAsAAAAYAFoAAQAHAAsAAAADAFYAAQAOAFEAAAALAFYAAQAOAFEAAAAoAFoAAQAHAAsAAAATAFYAAQAOAFEAAAA4AFoAAQAHAAsAAAAbAFYAAQAOAFEAAAAjAFYAAQAOAFEAAAArAFYAAQAOAFEAAABQAEUAAQAOAFEAAABQAEEAAQAOAFEAAABQAD0AAQAOAFEAAABQADkAAQAOAFEAAABQADUAAQAOAFEAAABYADkAAQAOAFEAAABYAD0AAQAOAFEAAABYAEEAAQAOAFEAAABYAEUAAQAOAFEAAABzADEAAQAHAAsAAACDADEAAQAHAAsAAACTADEAAQAHAAsAAACUADEAAQAHAAsAAACYADYAAQAOAFEAAACQADYAAQAOAFEAAACIADYAAQAOAFEAAACAADYAAQAOAFEAAACUADoAAQAHAAsAAACUAD4AAQAHAAsAAAA=")
+tile_set = SubResource("TileSet_sj5te")
+
+[node name="player" parent="." instance=ExtResource("3_cn2eb")]
+position = Vector2(171, 1223)
