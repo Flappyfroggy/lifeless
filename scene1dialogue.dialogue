@@ -1,0 +1,8 @@
+~ start
+Player: [[Huh?|What?]], where am i?
+Player: And... Who are you?
+do e.hideghost()
+Player: ....
+Player: ..
+Player: That was weird.
+=> END

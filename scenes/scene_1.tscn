@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cvclqgxdpc7ui"]
+[gd_scene load_steps=8 format=4 uid="uid://cvclqgxdpc7ui"]
 
+[ext_resource type="Script" uid="uid://bfry1y1f6f8en" path="res://scenes/scene1.gd" id="1_lki8s"]
 [ext_resource type="Texture2D" uid="uid://n43xrynmu8as" path="res://assets/campfire.png" id="1_ta4h7"]
 [ext_resource type="Texture2D" uid="uid://crqheneqfsqlj" path="res://assets/bricks.png" id="2_ka884"]
 [ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="3_cn2eb"]
+[ext_resource type="PackedScene" uid="uid://dr0iy7kq05rba" path="res://scenes/ghost.tscn" id="5_t6bmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ka884"]
 texture = ExtResource("2_ka884")
@@ -19,6 +21,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ka884")
 
 [node name="scene_1" type="Node2D"]
+script = ExtResource("1_lki8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1250, 747)
@@ -30,3 +33,6 @@ tile_set = SubResource("TileSet_sj5te")
 
 [node name="player" parent="." instance=ExtResource("3_cn2eb")]
 position = Vector2(171, 1223)
+
+[node name="ghost" parent="." instance=ExtResource("5_t6bmd")]
+position = Vector2(2284, 652)
