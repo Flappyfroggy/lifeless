@@ -1,13 +1,15 @@
 extends CharacterBody2D
 var initial_p = Vector2(1.0, 0.0)
 var notfloor = 0.0
-var gravity = 2000.0
+var gravity = 2400.0
 var going_right: bool = false
 var has_turned: bool = false
 var dashed: bool = false
 @onready var animated_sprite_2d = $AnimatedSprite2D
 func _physics_process(delta):
 	velocity.x = 0
+	if position.y > 3000:
+		position = initial_p
 	if Input.is_action_pressed("right"):
 		velocity.x = e.speed
 		going_right = true
