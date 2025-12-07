@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6lqgs3qc370b"]
+
+[ext_resource type="Script" uid="uid://nak2vopv272u" path="res://path_2d.gd" id="1_te2gx"]
+[ext_resource type="Texture2D" uid="uid://biwcklgtbxo2e" path="res://assets/Untitled_Artwork.png" id="2_18fvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0alkp"]
+size = Vector2(266.90363, 76.50691)
+
+[sub_resource type="Animation" id="Animation_3ebjm"]
+resource_name = "moving_bricks"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.56, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qkyu6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ual1b"]
+_data = {
+&"RESET": SubResource("Animation_qkyu6"),
+&"moving_bricks": SubResource("Animation_3ebjm")
+}
+
+[node name="Path2D" type="Path2D"]
+script = ExtResource("1_te2gx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(493.0829, 438.5847)
+rotation = -0.012551642
+progress = 33.099968
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(493.0829, 438.5847)
+rotation = -0.012551642
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("2_18fvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-1.1254272, -3.7682495)
+scale = Vector2(1.0000005, 1.0000005)
+shape = SubResource("RectangleShape2D_0alkp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ual1b")
+}
