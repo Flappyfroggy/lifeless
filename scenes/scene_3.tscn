@@ -1,18 +1,46 @@
-[gd_scene load_steps=4 format=4 uid="uid://ccpa7oxijcxpt"]
+[gd_scene load_steps=9 format=4 uid="uid://ccpa7oxijcxpt"]
 
 [ext_resource type="Texture2D" uid="uid://8xsnpnno56u" path="res://assets/rocky_bg.png" id="1_e23nr"]
+[ext_resource type="Script" uid="uid://d4m4vns252un4" path="res://scenes/scene_3.gd" id="1_toq7q"]
 [ext_resource type="TileSet" uid="uid://chi7hmi0qp7mw" path="res://tilemap.tres" id="2_4s0i8"]
+[ext_resource type="Script" uid="uid://wc0ifn36gm2r" path="res://scenes/to_scene_2.gd" id="3_cjh3u"]
 [ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="3_lon35"]
+[ext_resource type="Script" uid="uid://4cy4g2rkrxph" path="res://scenes/to_scene_5.gd" id="4_xcvhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcvhn"]
+size = Vector2(84.5, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2pi8"]
+size = Vector2(161.5, 331)
 
 [node name="scene_3" type="Node2D"]
+script = ExtResource("1_toq7q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1250, 748)
 texture = ExtResource("1_e23nr")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAIABoAAQAGABsAAAAuAAYAAQAsADMAAAAuABMAAQAsADMAAABZABkAAQAsADMAAABZACYAAQAsADMAAABZAAwAAQAsADMAAABZAP//AQAsADMAAACUADQAAQAGABsAAACTABYAAQAGABsAAABdAPX/AQAGABsAAABMAPX/AQAGABsAAAA9APX/AQAGABsAAAAtAPX/AQAGABsAAAAHAEEAAQAHAAsAAAACAEUAAQAHAAsAAABtAFAAAQAHAAsAAABZAC8AAQAsADMAAACdAAUAAQAsADMAAACdAA8AAQAsADMAAACVAPr/AQAsADMAAABuAPL/AQAHAAsAAAB/APL/AQAHAAsAAAB9APL/AQAHAAsAAACOAPL/AQAHAAsAAACHABgAAQAOAFEAAACHABQAAQAOAFEAAAB/ABQAAQAOAFEAAABZADcAAQAOAFEAAAA2ADYAAQAOAFEAAACIADIAAQAOAFEAAAA6ADYAAQAOAFEAAAA=")
+tile_map_data = PackedByteArray("AAAIABoAAQAGABsAAAAuAAYAAQAsADMAAAAuABMAAQAsADMAAABZABkAAQAsADMAAABZACYAAQAsADMAAABZAAwAAQAsADMAAABZAP//AQAsADMAAACUADQAAQAGABsAAACTABYAAQAGABsAAABdAPX/AQAGABsAAAAHAEEAAQAHAAsAAAACAEUAAQAHAAsAAABtAFAAAQAHAAsAAABZAC8AAQAsADMAAACdAAUAAQAsADMAAACdAA8AAQAsADMAAACVAPr/AQAsADMAAABuAPL/AQAHAAsAAAB/APL/AQAHAAsAAAB9APL/AQAHAAsAAACOAPL/AQAHAAsAAACHABgAAQAOAFEAAACHABQAAQAOAFEAAAB/ABQAAQAOAFEAAABZADcAAQAOAFEAAAA2ADYAAQAOAFEAAACIADIAAQAOAFEAAAA6ADYAAQAOAFEAAACbAD8AAQAsADMAAACbAEsAAQAsADMAAACbAFgAAQAsADMAAABNAP//AQAHAAsAAAA9AP//AQAHAAsAAAAuAP//AQAHAAsAAAAbAPT/AQAHAAsAAAALAPT/AQAHAAsAAAD7//T/AQAHAAsAAADr//T/AQAHAAsAAADr//3/AQAsADMAAADr/woAAQAsADMAAADs/xcAAQAsADMAAAD4/xoAAQAGABsAAAA=")
 tile_set = ExtResource("2_4s0i8")
 
+[node name="to_scene_2" type="Area2D" parent="."]
+script = ExtResource("3_cjh3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene_2"]
+position = Vector2(-136.25, 173)
+shape = SubResource("RectangleShape2D_xcvhn")
+
+[node name="to_scene_5" type="Area2D" parent="."]
+position = Vector2(2379, 678)
+script = ExtResource("4_xcvhn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene_5"]
+position = Vector2(108, -84)
+shape = SubResource("RectangleShape2D_r2pi8")
+
 [node name="player" parent="." instance=ExtResource("3_lon35")]
-position = Vector2(182, 235)
+position = Vector2(189, 245)
+
+[connection signal="area_entered" from="to_scene_2" to="to_scene_2" method="_on_area_entered"]
+[connection signal="area_entered" from="to_scene_5" to="to_scene_5" method="_on_area_entered"]

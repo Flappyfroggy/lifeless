@@ -456,5 +456,3 @@ shape = SubResource("RectangleShape2D_4flbx")
 
 [node name="dash_cooldown" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

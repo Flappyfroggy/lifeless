@@ -10,7 +10,7 @@ var timer_started: bool = false
 @onready var dash_cd = $dash_cooldown
 @onready var animated_sprite_2d = $AnimatedSprite2D
 func _ready():
-	dash_cd.timeout.connect(_on_dash_cooldown_timeout)
+	dash_cd.timeout.connect(timeout)
 func _physics_process(delta):
 	if not can_dash and not timer_started:
 		dash_cd.start()
@@ -74,6 +74,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_dash_cooldown_timeout() -> void:
+func timeout():
 	can_dash = true
 	timer_started = false

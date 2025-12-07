@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://bmkjgopj0njkx"]
+[gd_scene load_steps=13 format=4 uid="uid://bmkjgopj0njkx"]
 
+[ext_resource type="Script" uid="uid://b0xvabwoaguur" path="res://scenes/scene_2.gd" id="1_is556"]
 [ext_resource type="Texture2D" uid="uid://bkt6d5bdaf0tq" path="res://assets/Untitled_Artwork (2).png" id="1_xe0r6"]
 [ext_resource type="TileSet" uid="uid://chi7hmi0qp7mw" path="res://tilemap.tres" id="2_02v7m"]
 [ext_resource type="PackedScene" uid="uid://diyysjilm2adp" path="res://scenes/spikes.tscn" id="3_mejfh"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="5_ccscm"]
 [ext_resource type="Script" uid="uid://cf1io4p5jevst" path="res://scenes/toscene1.gd" id="6_yun4j"]
 [ext_resource type="Script" uid="uid://6120801b7u6n" path="res://scenes/to_scene_3.gd" id="7_qo03w"]
+[ext_resource type="Script" uid="uid://qy8v6g37is20" path="res://scenes/to_scene_4.gd" id="8_ul8a6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo03w"]
 size = Vector2(199, 346)
@@ -14,24 +16,28 @@ size = Vector2(199, 346)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is556"]
 size = Vector2(75, 251)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41217"]
+size = Vector2(78, 407)
+
 [node name="scene_2" type="Node2D"]
+script = ExtResource("1_is556")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1251, 748)
 texture = ExtResource("1_xe0r6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAEcAAQAOAFEAAAAHAE4AAQAGABsAAAAXAE4AAQAGABsAAAAnAEwAAQAHAAsAAAAoAFAAAQAHAAsAAAAHAFQAAQAHAAsAAAADAF0AAQAsADMAAAAzAFEAAQAsADMAAAA7AEwAAQAOAFEAAAAkABQAAQAsADMAAAAkAB0AAQAOAFEAAAAkACEAAQAOAFEAAAAsACEAAQAOAFEAAAAsAB0AAQAOAFEAAAAsABkAAQAOAFEAAAAsABUAAQAOAFEAAACUABAAAQAHAAsAAACYABkAAQAsADMAAACYAFcAAQAsADMAAAD8/wYAAQAsADMAAAD8/xIAAQAsADMAAAD8/x4AAQAsADMAAAD8/ysAAQAsADMAAAALAEcAAQAOAFEAAABcADQAAQAsADMAAABkADQAAQAsADMAAABpACsAAQAOAFEAAABpACcAAQAOAFEAAABpACIAAQAOAFEAAABpACMAAQAOAFEAAABpAB4AAQAOAFEAAABsADQAAQAsADMAAABsADwAAQAOAFEAAABkADwAAQAOAFEAAABsAEAAAQAOAFEAAAB0ADwAAQAOAFEAAAB0ADcAAQAOAFEAAAB0ADgAAQAOAFEAAAB0ADMAAQAOAFEAAABxACsAAQAOAFEAAAB0AC8AAQAOAFEAAABxACcAAQAOAFEAAACQABQAAQAOAFEAAACQABgAAQAOAFEAAACQAFsAAQAOAFEAAACQAFcAAQAOAFEAAACQAFMAAQAOAFEAAACQADIAAQAOAFEAAACQADQAAQAOAFEAAACQADgAAQAOAFEAAAAAAP3/AQAHAAsAAADr/zgAAQAsADMAAAD0/ywAAQAsADMAAADu/ywAAQAsADMAAAD3/0cAAQAHAAsAAADn/0AAAQAHAAsAAADn/0QAAQAHAAsAAACYADYAAQAOAFEAAACYADIAAQAOAFEAAACeACYAAQAsADMAAACeACwAAQAsADMAAAA=")
+tile_map_data = PackedByteArray("AAADAEcAAQAOAFEAAAAHAE4AAQAGABsAAAAXAE4AAQAGABsAAAAnAEwAAQAHAAsAAAAoAFAAAQAHAAsAAAAHAFQAAQAHAAsAAAADAF0AAQAsADMAAAAzAFEAAQAsADMAAAA7AEwAAQAOAFEAAAAkABQAAQAsADMAAAAkAB0AAQAOAFEAAAAkACEAAQAOAFEAAAAsACEAAQAOAFEAAAAsAB0AAQAOAFEAAAAsABkAAQAOAFEAAAAsABUAAQAOAFEAAACUABAAAQAHAAsAAACYABkAAQAsADMAAACYAFcAAQAsADMAAAD8/wYAAQAsADMAAAD8/xIAAQAsADMAAAD8/x4AAQAsADMAAAD8/ysAAQAsADMAAABcADQAAQAsADMAAABkADQAAQAsADMAAABpACsAAQAOAFEAAABpACcAAQAOAFEAAABpACIAAQAOAFEAAABpACMAAQAOAFEAAABpAB4AAQAOAFEAAABsADQAAQAsADMAAABsADwAAQAOAFEAAABkADwAAQAOAFEAAABsAEAAAQAOAFEAAAB0ADwAAQAOAFEAAAB0ADcAAQAOAFEAAAB0ADgAAQAOAFEAAAB0ADMAAQAOAFEAAABxACsAAQAOAFEAAAB0AC8AAQAOAFEAAABxACcAAQAOAFEAAACQABQAAQAOAFEAAACQABgAAQAOAFEAAACQAFsAAQAOAFEAAACQAFcAAQAOAFEAAACQAFMAAQAOAFEAAACQADIAAQAOAFEAAACQADQAAQAOAFEAAACQADgAAQAOAFEAAAAAAP3/AQAHAAsAAADr/zgAAQAsADMAAAD0/ywAAQAsADMAAADu/ywAAQAsADMAAAD3/0cAAQAHAAsAAADn/0AAAQAHAAsAAADn/0QAAQAHAAsAAACYADYAAQAOAFEAAACYADIAAQAOAFEAAACeACYAAQAsADMAAACeACwAAQAsADMAAAARAP3/AQAHAAsAAACWAPP/AQAHAAsAAACnAPP/AQAHAAsAAACGAPP/AQAHAAsAAACuAPf/AQAHAAsAAACuAPr/AQAHAAsAAACuAP3/AQAHAAsAAACuAAEAAQAHAAsAAACuAAUAAQAHAAsAAAA=")
 tile_set = ExtResource("2_02v7m")
 
 [node name="spikes" parent="." instance=ExtResource("3_mejfh")]
-position = Vector2(581, 1132)
+position = Vector2(581, 1135)
 
 [node name="spikes2" parent="." instance=ExtResource("3_mejfh")]
-position = Vector2(644, 1134)
+position = Vector2(651, 1144)
 
 [node name="spikes3" parent="." instance=ExtResource("3_mejfh")]
-position = Vector2(739, 1136)
+position = Vector2(724, 1148)
 
 [node name="spikes4" parent="." instance=ExtResource("4_mejfh")]
 position = Vector2(440, 265)
@@ -54,9 +60,6 @@ position = Vector2(1593, 578)
 [node name="spikes10" parent="." instance=ExtResource("4_mejfh")]
 position = Vector2(1595, 661)
 
-[node name="player" parent="." instance=ExtResource("5_ccscm")]
-position = Vector2(151, 1022)
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-212, 981)
 script = ExtResource("6_yun4j")
@@ -73,5 +76,17 @@ script = ExtResource("7_qo03w")
 position = Vector2(44, -4.5)
 shape = SubResource("RectangleShape2D_is556")
 
+[node name="to_scene4" type="Area2D" parent="."]
+position = Vector2(2452, 1145)
+script = ExtResource("8_ul8a6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene4"]
+position = Vector2(26, -37.5)
+shape = SubResource("RectangleShape2D_41217")
+
+[node name="player" parent="." instance=ExtResource("5_ccscm")]
+position = Vector2(151, 1022)
+
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_entered" from="to_scene3" to="to_scene3" method="_on_area_entered"]
+[connection signal="area_entered" from="to_scene4" to="to_scene4" method="_on_area_entered"]

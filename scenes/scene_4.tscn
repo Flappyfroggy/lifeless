@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5qsixmlxgkkq"]
+
+[ext_resource type="Texture2D" uid="uid://8xsnpnno56u" path="res://assets/rocky_bg.png" id="1_2r1qs"]
+
+[node name="scene4" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1250, 747)
+texture = ExtResource("1_2r1qs")
