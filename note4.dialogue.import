@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cpnn17ti787ve"
+path="res://.godot/imported/note4.dialogue-ee80a06c0c672de63b3ecf2c36916e97.tres"
+
+[deps]
+
+source_file="res://note4.dialogue"
+dest_files=["res://.godot/imported/note4.dialogue-ee80a06c0c672de63b3ecf2c36916e97.tres"]
+
+[params]
+
+defaults=true

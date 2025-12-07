@@ -1,3 +1,124 @@
-[gd_scene format=3 uid="uid://gi4txbsjfw3p"]
+[gd_scene load_steps=13 format=4 uid="uid://gi4txbsjfw3p"]
+
+[ext_resource type="Texture2D" uid="uid://ce7i6gmownm0r" path="res://assets/castle.png" id="1_8hhow"]
+[ext_resource type="TileSet" uid="uid://chi7hmi0qp7mw" path="res://tilemap.tres" id="2_jpbfi"]
+[ext_resource type="PackedScene" uid="uid://b6lqgs3qc370b" path="res://scenes/moving_plat.tscn" id="3_gtxkv"]
+[ext_resource type="PackedScene" uid="uid://diem6u65h618n" path="res://spikes_left.tscn" id="4_fo1ns"]
+[ext_resource type="Script" uid="uid://cen4c76h2fmx8" path="res://scenes/to_area_8.gd" id="5_re6ak"]
+[ext_resource type="Script" uid="uid://semfwiog8fh7" path="res://scenes/to_scene_6.gd" id="6_20cvb"]
+
+[sub_resource type="Curve2D" id="Curve2D_lmoqm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1115, 287, 0, 0, 0, 0, 2308, 164)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8mqr3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 171, 740, 0, 0, 0, 0, 1161, 711)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1txrn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2237, 1029, 0, 0, 0, 0, 1178, 552)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_an5xs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1658, 1260, 0, 0, 0, 0, 846, 1258)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y83xw"]
+size = Vector2(132, 399.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k80lv"]
+size = Vector2(134, 385)
 
 [node name="scene_7" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1250, 746)
+texture = ExtResource("1_8hhow")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIABgAAQAHAAsAAACfAAYAAQAsADMAAACfABMAAQAsADMAAACfACAAAQAsADMAAACfAEYAAQAsADMAAACfAFMAAQAsADMAAACfAGAAAQAsADMAAAD9/yAAAQAsADMAAAD9/y0AAQAsADMAAAD9/zoAAQAsADMAAAD9/0cAAQAsADMAAAD9/1MAAQAsADMAAAD9/14AAQAsADMAAACfAPn/AQAsADMAAAD5/xgAAQAHAAsAAAA=")
+tile_set = ExtResource("2_jpbfi")
+
+[node name="Path2D" parent="." instance=ExtResource("3_gtxkv")]
+curve = SubResource("Curve2D_lmoqm")
+loop = false
+speed = 2.5
+
+[node name="Path2D2" parent="." instance=ExtResource("3_gtxkv")]
+curve = SubResource("Curve2D_8mqr3")
+loop = false
+speed = 1.0
+
+[node name="Path2D3" parent="." instance=ExtResource("3_gtxkv")]
+curve = SubResource("Curve2D_1txrn")
+loop = false
+
+[node name="Path2D4" parent="." instance=ExtResource("3_gtxkv")]
+curve = SubResource("Curve2D_an5xs")
+loop = false
+speed = 4.0
+
+[node name="spikes" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2417, 46)
+
+[node name="spikes2" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2418, 138)
+
+[node name="spikes3" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2418, 230)
+
+[node name="spikes4" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2412, 319)
+
+[node name="spikes5" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2407, 400)
+
+[node name="spikes6" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2416, 482)
+
+[node name="spikes7" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2422, 552)
+
+[node name="spikes8" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2417, 1076)
+
+[node name="spikes9" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2417, 1157)
+
+[node name="spikes10" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2414, 1244)
+
+[node name="spikes11" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2417, 1336)
+
+[node name="spikes12" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2416, 1423)
+
+[node name="spikes13" parent="." instance=ExtResource("4_fo1ns")]
+position = Vector2(2417, 1501)
+
+[node name="to_area8" type="Area2D" parent="."]
+position = Vector2(2550, 856)
+script = ExtResource("5_re6ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_area8"]
+position = Vector2(0, -43.25)
+shape = SubResource("RectangleShape2D_y83xw")
+
+[node name="to_scene6" type="Area2D" parent="."]
+script = ExtResource("6_20cvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene6"]
+position = Vector2(-49, 176)
+shape = SubResource("RectangleShape2D_k80lv")
+
+[connection signal="area_entered" from="to_area8" to="to_area8" method="_on_area_entered"]
+[connection signal="area_entered" from="to_scene6" to="to_scene6" method="_on_area_entered"]
