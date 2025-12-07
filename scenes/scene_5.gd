@@ -4,6 +4,8 @@ extends Node2D
 func _process(_float) -> void:
 	if e.ghostappearance:
 		ghost.show()
+	if e.to_scene6:
+		get_tree().change_scene_to_file("res://scenes/scene_6.tscn")
 func _ready():
 	DialogueManager.show_dialogue_balloon(scene5, "start")
 	ghost.hide()

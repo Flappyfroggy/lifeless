@@ -8,6 +8,7 @@ var been_to_area2: bool = false
 var been_to_area3: bool = false
 var been_to_area4: bool = false
 var ghostappearance: bool = false
+var to_scene6: bool = false
 func hideghost():
 	ghosthidden = true
 

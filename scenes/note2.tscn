@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba744sradnkcg"]
+
+[ext_resource type="Script" uid="uid://b8f7v6c8vcoik" path="res://note2.gd" id="1_i3soh"]
+[ext_resource type="Texture2D" uid="uid://c2f6tjg3tdxeo" path="res://assets/note.png" id="2_8aqnw"]
+[ext_resource type="PackedScene" uid="uid://b8k4oqtinsdkc" path="res://interactables.tscn" id="3_u1gw8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nobuk"]
+radius = 125.004
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_i3soh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8aqnw")
+
+[node name="interactables" parent="." instance=ExtResource("3_u1gw8")]
+interact_name = "note"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactables"]
+shape = SubResource("CircleShape2D_nobuk")

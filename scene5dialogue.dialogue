@@ -16,4 +16,5 @@ Player: What do you know? What happened to my memories?
 Player: What happened to this world?!
 Ghost: In due time. In due time.
 Ghost: Goodbye, just for now.
+set e.to_scene6 = true
 => END

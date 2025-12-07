@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://ccpa7oxijcxpt"]
+[gd_scene load_steps=10 format=4 uid="uid://ccpa7oxijcxpt"]
 
 [ext_resource type="Texture2D" uid="uid://8xsnpnno56u" path="res://assets/rocky_bg.png" id="1_e23nr"]
 [ext_resource type="Script" uid="uid://d4m4vns252un4" path="res://scenes/scene_3.gd" id="1_toq7q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://wc0ifn36gm2r" path="res://scenes/to_scene_2.gd" id="3_cjh3u"]
 [ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="3_lon35"]
 [ext_resource type="Script" uid="uid://4cy4g2rkrxph" path="res://scenes/to_scene_5.gd" id="4_xcvhn"]
+[ext_resource type="PackedScene" uid="uid://ba744sradnkcg" path="res://scenes/note2.tscn" id="7_r2pi8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcvhn"]
 size = Vector2(84.5, 344)
@@ -41,6 +42,9 @@ shape = SubResource("RectangleShape2D_r2pi8")
 
 [node name="player" parent="." instance=ExtResource("3_lon35")]
 position = Vector2(189, 245)
+
+[node name="Area2D" parent="." instance=ExtResource("7_r2pi8")]
+position = Vector2(2233, 222)
 
 [connection signal="area_entered" from="to_scene_2" to="to_scene_2" method="_on_area_entered"]
 [connection signal="area_entered" from="to_scene_5" to="to_scene_5" method="_on_area_entered"]
