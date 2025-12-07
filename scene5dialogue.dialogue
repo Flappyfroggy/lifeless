@@ -1,0 +1,19 @@
+~ start
+Player: It's so pretty here.
+Player: ...
+Player: Yet, it feels so..
+Player: Empty.
+Player: Empty..
+Player: So, very empty.
+Player: ...
+Player: .....
+Player: Where is everyone?
+Player: And who is the mysterious creature that disappeared earlier?
+set e.ghostappearance = true
+Player: It's You!
+Player: You've been following me haven't you? And you're a ghost!
+Player: What do you know? What happened to my memories?
+Player: What happened to this world?!
+Ghost: In due time. In due time.
+Ghost: Goodbye, just for now.
+=> END

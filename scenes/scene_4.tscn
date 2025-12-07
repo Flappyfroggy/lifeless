@@ -1,9 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5qsixmlxgkkq"]
+[gd_scene load_steps=10 format=4 uid="uid://c5qsixmlxgkkq"]
 
 [ext_resource type="Texture2D" uid="uid://8xsnpnno56u" path="res://assets/rocky_bg.png" id="1_2r1qs"]
+[ext_resource type="TileSet" uid="uid://chi7hmi0qp7mw" path="res://tilemap.tres" id="2_k1qvo"]
+[ext_resource type="PackedScene" uid="uid://diem6u65h618n" path="res://spikes_left.tscn" id="3_7p87k"]
+[ext_resource type="PackedScene" uid="uid://diyysjilm2adp" path="res://scenes/spikes.tscn" id="4_hyci5"]
+[ext_resource type="Script" uid="uid://wc0ifn36gm2r" path="res://scenes/to_scene_2.gd" id="5_4m5or"]
+[ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="5_hyci5"]
+[ext_resource type="Script" uid="uid://4cy4g2rkrxph" path="res://scenes/to_scene_5.gd" id="6_4m5or"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7viaw"]
+size = Vector2(161.5, 361.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niqgf"]
+size = Vector2(84.5, 344)
 
 [node name="scene4" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1250, 747)
 texture = ExtResource("1_2r1qs")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAHADAAAQAHAAsAAAAvABcAAQAsADMAAAAvAAoAAQAsADMAAAAvAP3/AQAsADMAAAAvAEEAAQAsADMAAAAvAE4AAQAsADMAAAAvAFsAAQAsADMAAABQADMAAQAsADMAAABQAEEAAQAsADMAAABQAE4AAQAsADMAAABQAFwAAQAsADMAAABQABQAAQAsADMAAABQAAcAAQAsADMAAABtAB8AAQAsADMAAABuAEQAAQAsADMAAABtACMAAQAsADMAAABuAFEAAQAsADMAAABuAFwAAQAsADMAAACNAB4AAQAsADMAAACNACoAAQAsADMAAACVAB4AAQAsADMAAACdAB4AAQAsADMAAACVACcAAQAOAFEAAAD8/wYAAQAsADMAAAD8/xMAAQAsADMAAAD8/xYAAQAsADMAAAAIAP7/AQAHAAsAAAAYAP7/AQAHAAsAAAAmAP7/AQAHAAsAAAA6AP7/AQAHAAsAAABKAP7/AQAHAAsAAABaAP7/AQAHAAsAAABpAP7/AQAHAAsAAAB5AP7/AQAHAAsAAACIAP7/AQAHAAsAAACXAP7/AQAHAAsAAAA=")
+tile_set = ExtResource("2_k1qvo")
+
+[node name="spikes" parent="." instance=ExtResource("3_7p87k")]
+position = Vector2(627, 989)
+
+[node name="spikes2" parent="." instance=ExtResource("3_7p87k")]
+position = Vector2(1158, 397)
+
+[node name="spikes4" parent="." instance=ExtResource("4_hyci5")]
+position = Vector2(1722, 322)
+
+[node name="player" parent="." instance=ExtResource("5_hyci5")]
+position = Vector2(158, 642)
+
+[node name="to_scene_5" type="Area2D" parent="."]
+position = Vector2(2379, 678)
+script = ExtResource("6_4m5or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene_5"]
+position = Vector2(132, -479.25)
+shape = SubResource("RectangleShape2D_7viaw")
+
+[node name="to_scene_2" type="Area2D" parent="."]
+script = ExtResource("5_4m5or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene_2"]
+position = Vector2(-90, 599)
+shape = SubResource("RectangleShape2D_niqgf")
+
+[connection signal="area_entered" from="to_scene_5" to="to_scene_5" method="_on_area_entered"]
+[connection signal="area_entered" from="to_scene_2" to="to_scene_2" method="_on_area_entered"]

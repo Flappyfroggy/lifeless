@@ -455,4 +455,5 @@ shape = SubResource("RectangleShape2D_4flbx")
 [node name="interacting component" parent="." instance=ExtResource("10_n7ghd")]
 
 [node name="dash_cooldown" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
