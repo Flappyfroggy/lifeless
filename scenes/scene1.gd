@@ -1,8 +1,13 @@
 extends Node2D
 @onready var scene1dialogue = preload("res://scene1dialogue.dialogue")
 @onready var ghost = $ghost
+@onready var player = $player
 func _ready():
-	DialogueManager.show_dialogue_balloon(scene1dialogue, "start")
+	if not e.shown_startingdialogue:
+		DialogueManager.show_dialogue_balloon(scene1dialogue, "start")
+		e.shown_startingdialogue = true
+	if e.been_to_area2:
+		player.position = Vector2(2150,500)
 func _process(_float) -> void:
 	if e.ghosthidden:
 		ghost.hide()

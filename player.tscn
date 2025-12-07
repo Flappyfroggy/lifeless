@@ -345,7 +345,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"to_wall_left",
-"speed": 6.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -365,7 +365,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"to_wall_right",
-"speed": 6.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -440,9 +440,7 @@ script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sh265")
-animation = &"climb_left"
-frame = 8
-frame_progress = 1.0
+animation = &"to_wall_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, -16)
@@ -455,3 +453,8 @@ position = Vector2(3, -9)
 shape = SubResource("RectangleShape2D_4flbx")
 
 [node name="interacting component" parent="." instance=ExtResource("10_n7ghd")]
+
+[node name="dash_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://blq2gv8o7fq80"]
+
+[ext_resource type="Script" uid="uid://bi2gj802ph81v" path="res://spikes.gd" id="1_x074j"]
+[ext_resource type="Texture2D" uid="uid://c2m42rkl7rynq" path="res://assets/spikes.png" id="2_kihna"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd5gq"]
+radius = 35.0
+height = 122.0
+
+[node name="spikes" type="Area2D"]
+script = ExtResource("1_x074j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8125062, 1.312505)
+rotation = -4.702172
+scale = Vector2(0.93557274, 0.957653)
+texture = ExtResource("2_kihna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10.000002, -1)
+rotation = 1.5907623
+shape = SubResource("CapsuleShape2D_kd5gq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

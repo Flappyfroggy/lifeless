@@ -1,6 +1,9 @@
 ~ start
-Player: [[Huh?|What?]], where am i?
+Player: Huh? where am i? I don't remember sleeping here.
+Player: In fact, .... i don't remember anything.
+Player: .. Where are my memories?
 Player: And... Who are you?
+Player: Answer me!
 do e.hideghost()
 Player: ....
 Player: ..

@@ -1,12 +1,20 @@
 extends CharacterBody2D
-var initial_p = Vector2(1.0, 0.0)
+var initial_p = Vector2(30, 10)
 var notfloor = 0.0
 var gravity = 2400.0
 var going_right: bool = false
 var has_turned: bool = false
-var dashed: bool = false
+var can_dash: bool = false
+var timer_started: bool = false
+
+@onready var dash_cd = $dash_cooldown
 @onready var animated_sprite_2d = $AnimatedSprite2D
+func _ready():
+	dash_cd.timeout.connect(_on_dash_cooldown_timeout)
 func _physics_process(delta):
+	if not can_dash and not timer_started:
+		dash_cd.start()
+		timer_started = true
 	velocity.x = 0
 	if position.y > 3000:
 		position = initial_p
@@ -34,11 +42,16 @@ func _physics_process(delta):
 			animated_sprite_2d.play("leap_right")
 		else:
 			animated_sprite_2d.play("leap_left")
-		if Input.is_action_pressed("dash"):
+		if Input.is_action_just_pressed("dash") and not Input.is_action_pressed("up") and can_dash:
 			if going_right:
-				velocity.x = 4500
-			else:
-				velocity.x = -4500
+				velocity.x = 40000
+				can_dash = false
+			elif not going_right:
+				velocity.x = -40000
+				can_dash = false
+		if Input.is_action_just_pressed("dash") and Input.is_action_pressed("up") and can_dash:
+			velocity.y = -1000
+			can_dash = false
 	if Input.is_action_pressed("climb") and is_on_wall():
 		velocity.y = 0
 		if not has_turned:
@@ -55,4 +68,12 @@ func _physics_process(delta):
 			velocity.y = -500
 		if Input.is_action_pressed("down"):
 			velocity.y = 500
+	if e.playertouchedspikes:
+		position = initial_p
+		e.playertouchedspikes = false
 	move_and_slide()
+
+
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true
+	timer_started = false
