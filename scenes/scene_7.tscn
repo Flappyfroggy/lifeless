@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://gi4txbsjfw3p"]
+[gd_scene load_steps=14 format=4 uid="uid://gi4txbsjfw3p"]
 
 [ext_resource type="Texture2D" uid="uid://ce7i6gmownm0r" path="res://assets/castle.png" id="1_8hhow"]
 [ext_resource type="TileSet" uid="uid://chi7hmi0qp7mw" path="res://tilemap.tres" id="2_jpbfi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://diem6u65h618n" path="res://spikes_left.tscn" id="4_fo1ns"]
 [ext_resource type="Script" uid="uid://cen4c76h2fmx8" path="res://scenes/to_area_8.gd" id="5_re6ak"]
 [ext_resource type="Script" uid="uid://semfwiog8fh7" path="res://scenes/to_scene_6.gd" id="6_20cvb"]
+[ext_resource type="PackedScene" uid="uid://d2cms18mkfwv0" path="res://player.tscn" id="7_jpbfi"]
 
 [sub_resource type="Curve2D" id="Curve2D_lmoqm"]
 _data = {
@@ -84,15 +85,6 @@ position = Vector2(2407, 400)
 [node name="spikes6" parent="." instance=ExtResource("4_fo1ns")]
 position = Vector2(2416, 482)
 
-[node name="spikes7" parent="." instance=ExtResource("4_fo1ns")]
-position = Vector2(2422, 552)
-
-[node name="spikes8" parent="." instance=ExtResource("4_fo1ns")]
-position = Vector2(2417, 1076)
-
-[node name="spikes9" parent="." instance=ExtResource("4_fo1ns")]
-position = Vector2(2417, 1157)
-
 [node name="spikes10" parent="." instance=ExtResource("4_fo1ns")]
 position = Vector2(2414, 1244)
 
@@ -117,8 +109,11 @@ shape = SubResource("RectangleShape2D_y83xw")
 script = ExtResource("6_20cvb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene6"]
-position = Vector2(-49, 176)
+position = Vector2(-229, 183)
 shape = SubResource("RectangleShape2D_k80lv")
+
+[node name="player" parent="." instance=ExtResource("7_jpbfi")]
+position = Vector2(203, 255)
 
 [connection signal="area_entered" from="to_area8" to="to_area8" method="_on_area_entered"]
 [connection signal="area_entered" from="to_scene6" to="to_scene6" method="_on_area_entered"]

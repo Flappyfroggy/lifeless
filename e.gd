@@ -10,6 +10,9 @@ var been_to_area4: bool = false
 var been_to_area6: bool = false
 var ghostappearance: bool = false
 var to_scene6: bool = false
+var to_scene9: bool = false
+var ghosthide: bool = false
+var over: bool = false
 func hideghost():
 	ghosthidden = true
 

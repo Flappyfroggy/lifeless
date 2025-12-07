@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cispp2jmdqytx"
+path="res://.godot/imported/scene8dialogue.dialogue-062fa5beca6ac16c51f19e4bfe631f29.tres"
+
+[deps]
+
+source_file="res://scene8dialogue.dialogue"
+dest_files=["res://.godot/imported/scene8dialogue.dialogue-062fa5beca6ac16c51f19e4bfe631f29.tres"]
+
+[params]
+
+defaults=true

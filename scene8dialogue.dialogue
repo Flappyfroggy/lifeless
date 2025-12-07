@@ -1,0 +1,20 @@
+~ start
+Player: You again?
+Ghost: How much do you know?
+Player: Nothing, except for some information from the notes scattered around. There was a war that wiped out billions.
+Ghost: sigh* have you considered yourself in this story?
+Player: ...
+Ghost: You're one of survivors... The only one left.
+Ghost: You lived with me in the forest cave, the one you woke up in.
+Ghost: One night, i heard loud banging and went to go investigate.
+Ghost: I returned as a ghost, to find you in a deep slumber. 
+Ghost: ..
+Ghost: It has been a hundred years since then.
+Ghost: My job is.. done here.
+Ghost: Goodbye, Nat.
+set e.ghosthide = true
+Narrator: Memories flood back to you quickly.
+Nat (Player): Nooo..
+Unknown: Game Over. thanks for playing !!
+set e.over = true
+=> END

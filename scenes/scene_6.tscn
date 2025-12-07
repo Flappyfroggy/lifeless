@@ -39,13 +39,13 @@ position = Vector2(2456, 955)
 script = ExtResource("5_kabkq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_scene7"]
-position = Vector2(48, -30)
+position = Vector2(74, -31)
 shape = SubResource("RectangleShape2D_xxjtl")
 
 [node name="player" parent="." instance=ExtResource("6_4dusf")]
 position = Vector2(154, 825)
 
 [node name="Area2D" parent="." instance=ExtResource("7_kabkq")]
-position = Vector2(2339, 982)
+position = Vector2(2283, 988)
 
 [connection signal="area_entered" from="to_scene7" to="to_scene7" method="_on_area_entered"]
