@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://d2cms18mkfwv0"]
+[gd_scene load_steps=70 format=3 uid="uid://d2cms18mkfwv0"]
 
 [ext_resource type="Texture2D" uid="uid://cccn455n817sn" path="res://assets/cat_Layers.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cjgt8jbokdkgf" path="res://player.gd" id="1_onrkg"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://o7um8pdho4ib" path="res://assets/cat_To_Wall.png" id="6_urp6f"]
 [ext_resource type="Texture2D" uid="uid://505g6tqrdhdm" path="res://assets/cat_To_Wall_right.png" id="7_bwjto"]
 [ext_resource type="PackedScene" uid="uid://c1m3nnyg77bxo" path="res://interacting_component.tscn" id="10_n7ghd"]
+[ext_resource type="AudioStream" uid="uid://ckfxgoq2rj7tp" path="res://assets/Sketchbook 2024-11-13.ogg" id="11_ivps1"]
+[ext_resource type="AudioStream" uid="uid://bc8yu32kpsaix" path="res://assets/555412__tonsil5__zombie-death-1.wav" id="12_urp6f"]
+[ext_resource type="AudioStream" uid="uid://c1mgxij7y4y5b" path="res://assets/499066__16h_panska_skerl_jan__6_walking-on-sail.wav" id="13_urp6f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pbfsw"]
 atlas = ExtResource("2_b26j0")
@@ -457,3 +460,14 @@ shape = SubResource("RectangleShape2D_4flbx")
 [node name="dash_cooldown" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ivps1")
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_urp6f")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_urp6f")

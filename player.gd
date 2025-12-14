@@ -6,9 +6,10 @@ var going_right: bool = false
 var has_turned: bool = false
 var can_dash: bool = false
 var timer_started: bool = false
-
+@onready var death_sound = $AudioStreamPlayer2
 @onready var dash_cd = $dash_cooldown
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var walk = $AudioStreamPlayer3
 func _ready():
 	dash_cd.timeout.connect(timeout)
 func _physics_process(delta):
@@ -18,16 +19,19 @@ func _physics_process(delta):
 	velocity.x = 0
 	if position.y > 3000:
 		position = initial_p
+		death_sound.play()
 	if Input.is_action_pressed("right"):
 		velocity.x = e.speed
 		going_right = true
 		if is_on_floor():
 			animated_sprite_2d.play("walk_right")
+			walk.play()
 	elif Input.is_action_pressed("left"):
 		velocity.x = -e.speed
 		going_right = false
 		if is_on_floor():
 			animated_sprite_2d.play("walk_left")
+			walk.play()
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		notfloor += delta
@@ -71,6 +75,7 @@ func _physics_process(delta):
 	if e.playertouchedspikes:
 		position = initial_p
 		e.playertouchedspikes = false
+		death_sound.play()
 	move_and_slide()
 
 
